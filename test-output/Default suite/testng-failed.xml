@@ -3,11 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="headles.cucumber.project.headles.cucumber.project.HeadlessTest">
+      <class name="headles.cucumber.project.headles.cucumber.project.TestRunner">
         <methods>
-          <include name="test"/>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="tearDownClass"/>
         </methods>
-      </class> <!-- headles.cucumber.project.headles.cucumber.project.HeadlessTest -->
+      </class> <!-- headles.cucumber.project.headles.cucumber.project.TestRunner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="headles.cucumber.project.headles.cucumber.project.HeadlessTest"/>
+      <class name="headles.cucumber.project.headles.cucumber.project.TestRunner"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
