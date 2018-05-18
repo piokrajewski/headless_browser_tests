@@ -11,6 +11,7 @@ import cucumber.api.java.en.When;
 public class StepDefinitions {
 
 	WebDriver driver = new HtmlUnitDriver();
+	
 	@When("^I open browser$")
 	public void i_open_browser() throws Throwable {
 	    driver.get("http://www.google.pl");
@@ -24,7 +25,7 @@ public class StepDefinitions {
 	@Then("^Expected page title should be matched to the expected one$")
 	public void expected_page_title_should_be_matched_to_the_expected_one() throws Throwable {
 		String actual = driver.getTitle();
-		Assert.assertEquals("Gooogle", actual);
+		Assert.assertEquals("Google", actual);
 	}
 	
 	@Then("^Search button should be present$")
