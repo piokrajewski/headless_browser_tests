@@ -46,7 +46,7 @@ public class StepDefinitions {
 
 	@Then("^User should not be able to view dashboard page$")
 	public void user_should_not_be_able_to_view_dashboard_page() throws Throwable {
-	    Assert.assertTrue(driver.findElement(By.name("email")).isDisplayed());
+	    Assert.assertTrue(driver.findElement(By.name("email")).isDisplayed());;
 		
 	}
 
