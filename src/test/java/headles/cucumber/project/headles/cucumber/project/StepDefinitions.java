@@ -53,6 +53,7 @@ public class StepDefinitions {
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("https://www.instagram.com/accounts/login/");
+	    System.out.println( driver.getPageSource());	   
 	}
 
 	@When("^User put valid credentials$")
