@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -31,6 +32,22 @@ public class StepDefinitions {
 	@Then("^Search button should be present$")
 	public void search_button_should_be_present() throws Throwable {
 		 Assert.assertTrue(driver.findElement(By.name("btnK")).isDisplayed());
+	}
+	
+	@Given("^Facebook page is opened$")
+	public void facebook_page_is_opened() throws Throwable {
+	    driver.get("https://www.facebook.com");
+	}
+
+	@When("^Invalid credentials are provided$")
+	public void invalid_credentials_are_provided() throws Throwable {
+	    driver.findElement(By.name("email")).sendKeys("invalidEmail@ma.com");
+	}
+
+	@Then("^User should not be able to view dashboard page$")
+	public void user_should_not_be_able_to_view_dashboard_page() throws Throwable {
+	    Assert.assertTrue(driver.findElement(By.name("email")).isDisplayed());
+		;
 	}
 
 }
