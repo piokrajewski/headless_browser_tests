@@ -55,9 +55,10 @@ public class StepDefinitions {
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("http://www.google.pl");
+	    System.out.println("PRZED TESTEM: "+driver.getTitle());
 	    WebElement searchBox = driver.findElement(By.id("lst-ib"));
 	    searchBox.sendKeys("dupa",Keys.ENTER);
-	    driver.getTitle();
+	    System.out.println("PO TESCIE: "+driver.getTitle());
 	}
 
 	@When("^User put valid credentials$")
