@@ -2,7 +2,9 @@ package headles.cucumber.project.headles.cucumber.project;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import cucumber.api.java.en.Given;
@@ -52,10 +54,10 @@ public class StepDefinitions {
 	
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
-	    driver.get("https://www.instagram.com/accounts/login/");
-	    System.out.println("PAGE TITLE: "+driver.getTitle());	
-	    driver.findElement(By.xpath("//p[@class='_d2vov']")).getText();
-	    Thread.sleep(5000);
+	    driver.get("http://www.google.pl");
+	    WebElement searchBox = driver.findElement(By.id("lst-ib"));
+	    searchBox.sendKeys("dupa",Keys.ENTER);
+	    driver.getTitle();
 	}
 
 	@When("^User put valid credentials$")
