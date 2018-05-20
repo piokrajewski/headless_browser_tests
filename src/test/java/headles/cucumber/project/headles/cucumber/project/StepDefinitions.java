@@ -2,9 +2,7 @@ package headles.cucumber.project.headles.cucumber.project;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
@@ -56,27 +54,31 @@ public class StepDefinitions {
 	
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
-	    driver.get("http://www.google.pl");
-	    System.out.println("PRZED TESTEM: "+driver.getTitle());
-	    WebElement searchBox = driver.findElement(By.id("lst-ib"));
-	    searchBox.sendKeys("dupa",Keys.ENTER);
-	    System.out.println("PO TESCIE: "+driver.getTitle());
+	    driver.get("https://www.instagram.com/accounts/login/");
+	    
+	    System.out.println("MOJE: "+driver.findElement(By.xpath("//body")).getText());	
 	}
 
 	@When("^User put valid credentials$")
 	public void user_put_valid_credentials() throws Throwable {
 	    driver.findElement(By.name("username")).sendKeys("antekpoli8@gmail.com");
-	    Thread.sleep(2000);
 	    driver.findElement(By.name("password")).sendKeys("Password8");
-	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//button")).click();
 	}
 
 	@Then("^Page should display main menu$")
 	public void page_should_display_main_menu() throws Throwable {
-		 Thread.sleep(1000);
-		Assert.assertFalse(driver.findElement(By.xpath("//img[@alt='Zdjęcie profilowe antekpoli8']")).isDisplayed());
-	    
+		Assert.assertTrue(driver.findElement(By.xpath("//img[@alt='Zdjęcie profilowe antekpoli8']")).isDisplayed());
+	    ;
 	}
 
+	@When("^browser is opened$")
+	public void browser_is_opened() throws Throwable {
+	   driver.get("http://www.google.pl");
+	}
+
+	@Then("^page should be displayed$")
+	public void page_should_be_displayed() throws Throwable {
+	    Assert.assertEquals("Google", driver.getTitle());
+	}
 }
