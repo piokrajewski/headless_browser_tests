@@ -55,12 +55,13 @@ public class StepDefinitions {
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("https://www.instagram.com/accounts/login/");
-	    
-	    System.out.println("MOJE: "+driver.findElement(By.xpath("//body")).getText());	
+	    driver.findElement(By.xpath("//a[@href='/accounts/login/']")).click();
+	    System.out.println("TYTUL: "+driver.getTitle());	
 	}
 
 	@When("^User put valid credentials$")
 	public void user_put_valid_credentials() throws Throwable {
+		Thread.sleep(5000);
 	    driver.findElement(By.name("username")).sendKeys("antekpoli8@gmail.com");
 	    driver.findElement(By.name("password")).sendKeys("Password8");
 	    driver.findElement(By.xpath("//button")).click();
