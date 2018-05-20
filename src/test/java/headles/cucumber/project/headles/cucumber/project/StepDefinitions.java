@@ -54,18 +54,23 @@ public class StepDefinitions {
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("https://www.instagram.com/accounts/login/");
 	    System.out.println("MOJE: "+driver.findElement(By.xpath("//body")).getText());	
+	    Thread.sleep(5000);
 	}
 
 	@When("^User put valid credentials$")
 	public void user_put_valid_credentials() throws Throwable {
 	    driver.findElement(By.name("username")).sendKeys("antekpoli8@gmail.com");
+	    Thread.sleep(2000);
 	    driver.findElement(By.name("password")).sendKeys("Password8");
+	    Thread.sleep(2000);
 	    driver.findElement(By.xpath("//button")).click();
 	}
 
 	@Then("^Page should display main menu$")
 	public void page_should_display_main_menu() throws Throwable {
-	    driver.findElement(By.xpath("//img[@alt='Zdjęcie profilowe antekpoli8']"));
+		 Thread.sleep(1000);
+		Assert.assertFalse(driver.findElement(By.xpath("//img[@alt='Zdjęcie profilowe antekpoli8']")).isDisplayed());
+	    
 	}
 
 }
