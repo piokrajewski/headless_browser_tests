@@ -7,13 +7,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class StepDefinitions {
 
-	WebDriver driver = new HtmlUnitDriver();
+	WebDriver driver = new HtmlUnitDriver(BrowserVersion.FIREFOX_38);
 	
 	@When("^I open browser$")
 	public void i_open_browser() throws Throwable {
