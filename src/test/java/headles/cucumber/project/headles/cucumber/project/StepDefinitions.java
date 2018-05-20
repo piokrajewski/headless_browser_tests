@@ -2,7 +2,6 @@ package headles.cucumber.project.headles.cucumber.project;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
@@ -15,7 +14,6 @@ import cucumber.api.java.en.When;
 public class StepDefinitions {
 
 	WebDriver driver = new HtmlUnitDriver(BrowserVersion.FIREFOX_38);
-	
 	@When("^I open browser$")
 	public void i_open_browser() throws Throwable {
 	    driver.get("http://www.google.pl");
@@ -81,9 +79,9 @@ public class StepDefinitions {
 	}
 	@When("^i put phase into the searchbox field$")
 	public void i_put_phase_into_the_searchbox_field() throws Throwable {
-		driver.findElement(By.xpath("lst-ib")).sendKeys(Keys.ENTER, "Selenium");
-		Thread.sleep(6000);
-		driver.findElement(By.xpath("//a[@href=\"https://www.seleniumhq.org/\"]")).click();
+		driver.findElement(By.name("q")).sendKeys("Selenium");
+		driver.findElement(By.name("btnK")).click();
+		driver.findElement(By.xpath("(//h3[@class='r'])[2]")).click();
 	}
 
 	@Then("^page title of the opened page should be proper$")
