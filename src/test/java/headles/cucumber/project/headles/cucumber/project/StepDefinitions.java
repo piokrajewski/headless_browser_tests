@@ -2,6 +2,7 @@ package headles.cucumber.project.headles.cucumber.project;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
@@ -55,6 +56,7 @@ public class StepDefinitions {
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("https://www.instagram.com/accounts/login/");
+	    Thread.sleep(5000);
 	    driver.findElement(By.xpath("//a[@href='/accounts/login/']")).click();
 	    System.out.println("TYTUL: "+driver.getTitle());	
 	}
@@ -77,9 +79,15 @@ public class StepDefinitions {
 	public void browser_is_opened() throws Throwable {
 	   driver.get("http://www.google.pl");
 	}
+	@When("^i put phase into the searchbox field$")
+	public void i_put_phase_into_the_searchbox_field() throws Throwable {
+		driver.findElement(By.xpath("lst-ib")).sendKeys(Keys.ENTER, "Selenium");
+		Thread.sleep(6000);
+		driver.findElement(By.xpath("//a[@href=\"https://www.seleniumhq.org/\"]")).click();
+	}
 
-	@Then("^page should be displayed$")
-	public void page_should_be_displayed() throws Throwable {
-	    Assert.assertEquals("Google", driver.getTitle());
+	@Then("^page title of the opened page should be proper$")
+	public void page_title_of_the_opened_page_should_be_proper() throws Throwable {
+	    Assert.assertEquals("Selenium - Web Browser Automation", driver.getTitle());
 	}
 }
