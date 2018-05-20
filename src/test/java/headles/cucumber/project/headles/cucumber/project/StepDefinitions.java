@@ -53,7 +53,8 @@ public class StepDefinitions {
 	@Given("^Instagram page is opened$")
 	public void instagram_page_is_opened() throws Throwable {
 	    driver.get("https://www.instagram.com/accounts/login/");
-	    System.out.println("MOJE: "+driver.findElement(By.xpath("//body")).getText());	
+	    System.out.println("PAGE TITLE: "+driver.getTitle());	
+	    driver.findElement(By.xpath("//p[@class='_d2vov']")).getText();
 	    Thread.sleep(5000);
 	}
 
